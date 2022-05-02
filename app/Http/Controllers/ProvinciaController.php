@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cliente;
+use App\Models\Provincia;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use App\Http\Requests\StoreProvinciaRequest;
+use App\Http\Requests\UpdateProvinciaRequest;
 
-use App\Http\Requests\StoreClienteRequest;
-use App\Http\Requests\UpdateClienteRequest;
-
-class ClienteController extends Controller
+class ProvinciaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,9 +18,9 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $clientes = Cliente::all();
+        $provincias = Provincia::all();
         return response()->json([
-            "data"=>$clientes,
+            "data"=>$provincias,
             "status"=>Response::HTTP_OK
         ],Response::HTTP_OK);
     }
@@ -30,15 +29,15 @@ class ClienteController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreClienteRequest  $request
+     * @param  \App\Http\Requests\StoreProvinciaRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreClienteRequest $request)
+    public function store(StoreProvinciaRequest $request)
     {
-        $cliente = Cliente::create($request->all());
+        $provincia = Provincia::create($request->all());
         return response()->json([
-            "message"=>"El cliente ha sido creado correctamente",
-            "data"=>$cliente,
+            "message"=>"La Provincia ha sido creada correctamente",
+            "data"=>$provincia,
             "status"=>Response::HTTP_CREATED
         ],Response::HTTP_CREATED);
     }
@@ -46,32 +45,32 @@ class ClienteController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Cliente  $cliente
+     * @param  \App\Models\Provincia  $provincia
      * @return \Illuminate\Http\Response
      */
-    public function show(Cliente $cliente)
+    public function show(Provincia $provincia)
     {
         return response()->json([
-            "data"=>$cliente,
+            "data"=>$provincia,
             "status"=>Response::HTTP_OK
         ],Response::HTTP_OK);
     }
 
- 
+    
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateClienteRequest  $request
-     * @param  \App\Models\Cliente  $cliente
+     * @param  \App\Http\Requests\UpdateProvinciaRequest  $request
+     * @param  \App\Models\Provincia  $provincia
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateClienteRequest $request, Cliente $cliente)
+    public function update(UpdateProvinciaRequest $request, Provincia $provincia)
     {
-        $cliente->update($request->all());
+        $provincia->update($request->all());
         return response()->json([
-            "message"=>"El Cliente ha sido actualizado correctamente",
-            "data"=>$cliente,
+            "message"=>"La Provincia ha sido actualizada correctamente",
+            "data"=>$provincia,
             "status"=>Response::HTTP_OK
         ],Response::HTTP_OK);
     }
@@ -79,15 +78,15 @@ class ClienteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Cliente  $cliente
+     * @param  \App\Models\Provincia  $provincia
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cliente $cliente)
+    public function destroy(Provincia $provincia)
     {
-        $cliente->delete();
+        $provincia->delete();
         return response()->json([
-            "message"=>"El Cliente ha sido eliminado correctamente",
-            "data"=>$cliente,
+            "message"=>"La Provincia ha sido eliminada correctamente",
+            "data"=>$provincia,
             "status"=>Response::HTTP_OK
         ],Response::HTTP_OK);
     }

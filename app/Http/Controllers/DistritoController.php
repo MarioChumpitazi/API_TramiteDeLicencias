@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cliente;
-
+use App\Models\Distrito;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-use App\Http\Requests\StoreClienteRequest;
-use App\Http\Requests\UpdateClienteRequest;
+use App\Http\Requests\StoreDistritoRequest;
+use App\Http\Requests\UpdateDistritoRequest;
 
-class ClienteController extends Controller
+class DistritoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,9 +18,9 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $clientes = Cliente::all();
+        $distritos = Distrito::all();
         return response()->json([
-            "data"=>$clientes,
+            "data"=>$distritos,
             "status"=>Response::HTTP_OK
         ],Response::HTTP_OK);
     }
@@ -30,15 +29,15 @@ class ClienteController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreClienteRequest  $request
+     * @param  \App\Http\Requests\StoreDistritoRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreClienteRequest $request)
+    public function store(StoreDistritoRequest $request)
     {
-        $cliente = Cliente::create($request->all());
+        $distrito = Distrito::create($request->all());
         return response()->json([
-            "message"=>"El cliente ha sido creado correctamente",
-            "data"=>$cliente,
+            "message"=>"El Distrito ha sido creado correctamente",
+            "data"=>$distrito,
             "status"=>Response::HTTP_CREATED
         ],Response::HTTP_CREATED);
     }
@@ -46,32 +45,32 @@ class ClienteController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Cliente  $cliente
+     * @param  \App\Models\Distrito  $distrito
      * @return \Illuminate\Http\Response
      */
-    public function show(Cliente $cliente)
+    public function show(Distrito $distrito)
     {
         return response()->json([
-            "data"=>$cliente,
+            "data"=>$distrito,
             "status"=>Response::HTTP_OK
         ],Response::HTTP_OK);
     }
 
- 
+    
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateClienteRequest  $request
-     * @param  \App\Models\Cliente  $cliente
+     * @param  \App\Http\Requests\UpdateDistritoRequest  $request
+     * @param  \App\Models\Distrito  $distrito
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateClienteRequest $request, Cliente $cliente)
+    public function update(UpdateDistritoRequest $request, Distrito $distrito)
     {
-        $cliente->update($request->all());
+        $distrito->update($request->all());
         return response()->json([
-            "message"=>"El Cliente ha sido actualizado correctamente",
-            "data"=>$cliente,
+            "message"=>"El Distrito ha sido actualizado correctamente",
+            "data"=>$distrito,
             "status"=>Response::HTTP_OK
         ],Response::HTTP_OK);
     }
@@ -79,15 +78,15 @@ class ClienteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Cliente  $cliente
+     * @param  \App\Models\Distrito  $distrito
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cliente $cliente)
+    public function destroy(Distrito $distrito)
     {
-        $cliente->delete();
+        $distrito->delete();
         return response()->json([
-            "message"=>"El Cliente ha sido eliminado correctamente",
-            "data"=>$cliente,
+            "message"=>"El Distrito ha sido eliminado correctamente",
+            "data"=>$distrito,
             "status"=>Response::HTTP_OK
         ],Response::HTTP_OK);
     }
