@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CitaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\DepartamentoController;
 use App\Http\Controllers\DistritoController;
@@ -30,3 +31,4 @@ Route::apiResource('/clientes',ClienteController::class);
 Route::apiResource('/departamentos',DepartamentoController::class);
 Route::apiResource('/provincias',ProvinciaController::class);
 Route::apiResource('/distritos',DistritoController::class);
+Route::apiResource('/citas',CitaController::class);
