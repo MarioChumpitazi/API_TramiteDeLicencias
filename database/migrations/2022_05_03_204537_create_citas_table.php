@@ -23,10 +23,15 @@ class CreateCitasTable extends Migration
             $table->boolean('estado')->default(1);
 
             $table->unsignedBigInteger('idCliente');
+            $table->unsignedBigInteger('idTramite');
 
             $table->foreign('idCliente')
                 ->references('id')
                 ->on('clientes');
+
+            $table->foreign('idTramite')
+                ->references('id')
+                ->on('tramites');
         });
     }
 
