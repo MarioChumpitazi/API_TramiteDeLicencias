@@ -19,5 +19,4 @@ class Cliente extends Model
         "estado",
     ];
 
-
 }
