@@ -12,7 +12,6 @@ class Cliente extends Model
         "apellidos",
         "email",
         "DNI",
-        "RUC",
         "sexo",
         "edad",
         "telefono",
