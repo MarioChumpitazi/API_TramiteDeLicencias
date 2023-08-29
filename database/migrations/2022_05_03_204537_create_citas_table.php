@@ -22,12 +22,12 @@ class CreateCitasTable extends Migration
             $table->string('codigoPago',50);     
             $table->boolean('estado')->default(1);
 
-            $table->unsignedBigInteger('idCliente');
+            // $table->unsignedBigInteger('idCliente');
             $table->unsignedBigInteger('idTramite');
 
-            $table->foreign('idCliente')
-                ->references('id')
-                ->on('clientes');
+            // $table->foreign('idCliente')
+            //     ->references('id')
+            //     ->on('clientes');
 
             $table->foreign('idTramite')
                 ->references('id')

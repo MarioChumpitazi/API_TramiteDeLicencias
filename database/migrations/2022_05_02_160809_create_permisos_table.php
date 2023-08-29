@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTramitesTable extends Migration
+class CreatePermisosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,16 @@ class CreateTramitesTable extends Migration
      */
     public function up()
     {
-        Schema::create('tramites', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('permisos', function (Blueprint $table) {
+            $table->id();
             $table->timestamps();
-            $table->dateTime('fechaPago');
-            $table->string('nOperacion');
-            $table->boolean('asistencia');
             $table->boolean('estado')->default(1);
 
+            $table->unsignedBigInteger('idPerfil');
+
+            $table->foreign('idPerfil')
+                ->references('id')
+                ->on('perfiles');
 
             $table->unsignedBigInteger('idModulo');
 
@@ -37,6 +39,6 @@ class CreateTramitesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tramites');
+        Schema::dropIfExists('permisos');
     }
 }

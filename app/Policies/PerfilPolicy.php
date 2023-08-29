@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Empleado;
+use App\Models\Perfil;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class EmpleadoPolicy
+class PerfilPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class EmpleadoPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Empleado  $empleado
+     * @param  \App\Models\Perfil  $perfil
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Empleado $empleado)
+    public function view(User $user, Perfil $perfil)
     {
         //
     }
@@ -48,10 +48,10 @@ class EmpleadoPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Empleado  $empleado
+     * @param  \App\Models\Perfil  $perfil
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Empleado $empleado)
+    public function update(User $user, Perfil $perfil)
     {
         //
     }
@@ -60,10 +60,10 @@ class EmpleadoPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Empleado  $empleado
+     * @param  \App\Models\Perfil  $perfil
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Empleado $empleado)
+    public function delete(User $user, Perfil $perfil)
     {
         //
     }
@@ -72,10 +72,10 @@ class EmpleadoPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Empleado  $empleado
+     * @param  \App\Models\Perfil  $perfil
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Empleado $empleado)
+    public function restore(User $user, Perfil $perfil)
     {
         //
     }
@@ -84,10 +84,10 @@ class EmpleadoPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Empleado  $empleado
+     * @param  \App\Models\Perfil  $perfil
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Empleado $empleado)
+    public function forceDelete(User $user, Perfil $perfil)
     {
         //
     }

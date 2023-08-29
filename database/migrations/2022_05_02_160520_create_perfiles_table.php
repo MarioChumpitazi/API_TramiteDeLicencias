@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTramitesTable extends Migration
+class CreatePerfilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,12 @@ class CreateTramitesTable extends Migration
      */
     public function up()
     {
-        Schema::create('tramites', function (Blueprint $table) {
+        Schema::create('perfiles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->dateTime('fechaPago');
-            $table->string('nOperacion');
-            $table->boolean('asistencia');
+            $table->string('nombre',255);
             $table->boolean('estado')->default(1);
 
-
-            $table->unsignedBigInteger('idModulo');
-
-            $table->foreign('idModulo')
-                ->references('id')
-                ->on('modulos');
         });
     }
 
@@ -37,6 +29,6 @@ class CreateTramitesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tramites');
+        Schema::dropIfExists('perfiles');
     }
 }

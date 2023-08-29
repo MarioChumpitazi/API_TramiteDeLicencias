@@ -24,6 +24,12 @@ class CreateClientesTable extends Migration
             $table->integer('edad')->length(2);
             $table->integer('telefono')->length(15);;
             $table->boolean('estado')->default(1);
+
+            $table->unsignedBigInteger('idPerfil');
+
+            $table->foreign('idPerfil')
+                ->references('id')
+                ->on('perfiles');
         });
     }
 
