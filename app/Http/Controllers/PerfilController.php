@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Perfil;
+
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+
 use App\Http\Requests\StorePerfilRequest;
 use App\Http\Requests\UpdatePerfilRequest;
 
@@ -15,7 +19,11 @@ class PerfilController extends Controller
      */
     public function index()
     {
-        //
+        $perfiles = Perfil::all();
+        return response()->json([
+            "data"=>$perfiles,
+            "status"=>Response::HTTP_OK
+        ],Response::HTTP_OK);
     }
 
     /**
@@ -36,7 +44,12 @@ class PerfilController extends Controller
      */
     public function store(StorePerfilRequest $request)
     {
-        //
+        $perfil = Perfil::create($request->all());
+        return response()->json([
+            "message"=>"El perfil ha sido creado correctamente",
+            "data"=>$perfil,
+            "status"=>Response::HTTP_CREATED
+        ],Response::HTTP_CREATED);
     }
 
     /**
@@ -47,7 +60,10 @@ class PerfilController extends Controller
      */
     public function show(Perfil $perfil)
     {
-        //
+        return response()->json([
+            "data"=>$perfil,
+            "status"=>Response::HTTP_OK
+        ],Response::HTTP_OK);
     }
 
     /**
@@ -70,7 +86,12 @@ class PerfilController extends Controller
      */
     public function update(UpdatePerfilRequest $request, Perfil $perfil)
     {
-        //
+        $perfil->update($request->all());
+        return response()->json([
+            "message"=>"El Perfil ha sido actualizado correctamente",
+            "data"=>$perfil,
+            "status"=>Response::HTTP_OK
+        ],Response::HTTP_OK);
     }
 
     /**
@@ -81,6 +102,11 @@ class PerfilController extends Controller
      */
     public function destroy(Perfil $perfil)
     {
-        //
+        $perfil->delete();
+        return response()->json([
+            "message"=>"El Perfil ha sido eliminado correctamente",
+            "data"=>$perfil,
+            "status"=>Response::HTTP_OK
+        ],Response::HTTP_OK);
     }
 }

@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Modulo;
+
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+
 use App\Http\Requests\StoreModuloRequest;
 use App\Http\Requests\UpdateModuloRequest;
 
@@ -15,7 +19,11 @@ class ModuloController extends Controller
      */
     public function index()
     {
-        //
+        $modulos = Modulo::all();
+        return response()->json([
+            "data"=>$modulos,
+            "status"=>Response::HTTP_OK
+        ],Response::HTTP_OK);
     }
 
     /**
@@ -36,7 +44,12 @@ class ModuloController extends Controller
      */
     public function store(StoreModuloRequest $request)
     {
-        //
+        $modulo = Modulo::create($request->all());
+        return response()->json([
+            "message"=>"El Modulo ha sido creado correctamente",
+            "data"=>$modulo,
+            "status"=>Response::HTTP_CREATED
+        ],Response::HTTP_CREATED);
     }
 
     /**
@@ -47,7 +60,10 @@ class ModuloController extends Controller
      */
     public function show(Modulo $modulo)
     {
-        //
+        return response()->json([
+            "data"=>$modulo,
+            "status"=>Response::HTTP_OK
+        ],Response::HTTP_OK);
     }
 
     /**
@@ -70,7 +86,12 @@ class ModuloController extends Controller
      */
     public function update(UpdateModuloRequest $request, Modulo $modulo)
     {
-        //
+        $modulo->update($request->all());
+        return response()->json([
+            "message"=>"El Modulo ha sido actualizado correctamente",
+            "data"=>$modulo,
+            "status"=>Response::HTTP_OK
+        ],Response::HTTP_OK);
     }
 
     /**
@@ -81,6 +102,11 @@ class ModuloController extends Controller
      */
     public function destroy(Modulo $modulo)
     {
-        //
+        $modulo->delete();
+        return response()->json([
+            "message"=>"El Modulo ha sido eliminado correctamente",
+            "data"=>$modulo,
+            "status"=>Response::HTTP_OK
+        ],Response::HTTP_OK);
     }
 }

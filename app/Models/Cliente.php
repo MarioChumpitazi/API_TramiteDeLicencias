@@ -16,6 +16,12 @@ class Cliente extends Model
         "edad",
         "telefono",
         "estado",
+        "idPerfil"
+
     ];
+
+    public function perfil(){
+        return $this->belongsTo('App\Models\Perfil','idPerfil');
+    }
 
 }

@@ -13,13 +13,8 @@ class Cita extends Model
         "mes",
         "codigoPago",
         "estado",
-        "idCliente",
         "idTramite"
     ];
-
-    public function cliente(){
-        return $this->belongsTo('App\Models\Cliente','idCliente');
-    }
 
     public function tramite(){
         return $this->belongsTo('App\Models\Tramite','idTramite');

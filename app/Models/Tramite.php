@@ -12,7 +12,11 @@ class Tramite extends Model
         "nOperacion",
         "asistencia",
         "estado",
-        "idEmpleado"
+        "idModulo"
     ];
+
+    public function modulo(){
+        return $this->belongsTo('App\Models\Modulo','idModulo');
+    }
 
 }

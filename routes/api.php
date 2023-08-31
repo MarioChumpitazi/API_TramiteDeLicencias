@@ -46,3 +46,7 @@ Route::apiResource('/examenConocimientos',ExamenConocimientoController::class);
 Route::apiResource('/examenManejos',ExamenManejoController::class);
 Route::apiResource('/licencias',LicenciaController::class);
 Route::apiResource('/citas',CitaController::class);
+
+Route::apiResource('/perfiles',CitaController::class);
+Route::apiResource('/permisos',CitaController::class);
+Route::apiResource('/modulos',CitaController::class);
