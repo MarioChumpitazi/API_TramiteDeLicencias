@@ -19,6 +19,7 @@ class CreateClientesTable extends Migration
             $table->string('nombres',50);
             $table->string('apellidos',50);
             $table->string('email',255)->unique();
+            $table->string('password',255);
             $table->string('DNI',9)->unique();
             $table->enum('sexo',['Masculino','Femenino']);
             $table->integer('edad')->length(2);
@@ -30,6 +31,12 @@ class CreateClientesTable extends Migration
             $table->foreign('idPerfil')
                 ->references('id')
                 ->on('perfiles');
+
+                $table->unsignedBigInteger('idDepartamento');
+
+                $table->foreign('idDepartamento')
+                    ->references('id')
+                    ->on('departamentos');
         });
     }
 

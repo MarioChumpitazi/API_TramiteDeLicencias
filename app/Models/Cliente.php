@@ -11,17 +11,23 @@ class Cliente extends Model
         "nombres",
         "apellidos",
         "email",
+        "password",
         "DNI",
         "sexo",
         "edad",
         "telefono",
         "estado",
-        "idPerfil"
+        "idPerfil",
+        "idDepartamento"
 
     ];
 
     public function perfil(){
         return $this->belongsTo('App\Models\Perfil','idPerfil');
+    }
+
+    public function departamento(){
+        return $this->belongsTo('App\Models\Departamento','idDepartamento');
     }
 
 }

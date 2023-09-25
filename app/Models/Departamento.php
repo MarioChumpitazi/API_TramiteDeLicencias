@@ -11,10 +11,7 @@ class Departamento extends Model
         "nombre",
         "descripcion",
         "estado",
-        "idCliente"
     ];
 
-    public function cliente(){
-        return $this->belongsTo('App\Models\Cliente','idCliente');
-    }
+
 }

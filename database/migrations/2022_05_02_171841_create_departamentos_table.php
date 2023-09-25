@@ -20,11 +20,6 @@ class CreateDepartamentosTable extends Migration
             $table->string('descripcion',255);
             $table->boolean('estado')->default(1);
 
-            $table->unsignedBigInteger('idCliente');
-
-            $table->foreign('idCliente')
-                ->references('id')
-                ->on('clientes');
         });
     }
 
