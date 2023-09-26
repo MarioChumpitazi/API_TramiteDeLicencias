@@ -35,7 +35,12 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-
+/*
+Route::middleware('auth:api')->group(function () {
+    // our routes to be protected will go in here
+    Route::apiResource('/clientes',ClienteController::class);
+});
+*/
 Route::apiResource('/clientes',ClienteController::class);
 Route::apiResource('/departamentos',DepartamentoController::class);
 Route::apiResource('/provincias',ProvinciaController::class);
