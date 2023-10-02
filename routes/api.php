@@ -8,8 +8,11 @@ use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\ExamenConocimientoController;
 use App\Http\Controllers\ExamenManejoController;
 use App\Http\Controllers\LicenciaController;
+use App\Http\Controllers\ModuloController;
+use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\ProvinciaController;
 use App\Http\Controllers\TramiteController;
+use App\Http\Controllers\UserController;
 use App\Models\Departamento;
 use App\Models\Distrito;
 use App\Models\Empleado;
@@ -41,17 +44,23 @@ Route::middleware('auth:api')->group(function () {
     Route::apiResource('/clientes',ClienteController::class);
 });
 */
-Route::apiResource('/clientes',ClienteController::class);
-Route::apiResource('/departamentos',DepartamentoController::class);
-Route::apiResource('/provincias',ProvinciaController::class);
-Route::apiResource('/distritos',DistritoController::class);
-Route::apiResource('/empleados',EmpleadoController::class);
-Route::apiResource('/tramites',TramiteController::class);
-Route::apiResource('/examenConocimientos',ExamenConocimientoController::class);
-Route::apiResource('/examenManejos',ExamenManejoController::class);
-Route::apiResource('/licencias',LicenciaController::class);
-Route::apiResource('/citas',CitaController::class);
 
-Route::apiResource('/perfiles',CitaController::class);
-Route::apiResource('/permisos',CitaController::class);
-Route::apiResource('/modulos',CitaController::class);
+Route::post('/login', [UserController::class, 'login']);
+Route::post('/register', [UserController::class, 'register']);
+
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::apiResource('/clientes',ClienteController::class);
+    Route::apiResource('/departamentos',DepartamentoController::class);
+    Route::apiResource('/provincias',ProvinciaController::class);
+    Route::apiResource('/distritos',DistritoController::class);
+    Route::apiResource('/empleados',EmpleadoController::class);
+    Route::apiResource('/tramites',TramiteController::class);
+    Route::apiResource('/examenConocimientos',ExamenConocimientoController::class);
+    Route::apiResource('/examenManejos',ExamenManejoController::class);
+    Route::apiResource('/licencias',LicenciaController::class);
+    Route::apiResource('/citas',CitaController::class);
+
+    Route::apiResource('/perfils',PerfilController::class);
+    Route::apiResource('/permisos',PermisoController::class);
+    Route::apiResource('/modulos',ModuloController::class);
+});

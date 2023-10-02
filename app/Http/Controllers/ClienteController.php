@@ -9,6 +9,8 @@ use Illuminate\Http\Response;
 
 use App\Http\Requests\StoreClienteRequest;
 use App\Http\Requests\UpdateClienteRequest;
+use App\Models\Departamento;
+use App\Models\Perfil;
 
 class ClienteController extends Controller
 {
@@ -36,7 +38,8 @@ class ClienteController extends Controller
     public function store(StoreClienteRequest $request)
     {
         $cliente = Cliente::create($request->all());
-        return response()->json([
+
+                return response()->json([
             "message"=>"El cliente ha sido creado correctamente",
             "data"=>$cliente,
             "status"=>Response::HTTP_CREATED
@@ -51,8 +54,12 @@ class ClienteController extends Controller
      */
     public function show(Cliente $cliente)
     {
+        $perfil = Perfil::findOrFail($cliente->id);
+        $departamento = Departamento::findOrFail($cliente->id);
         return response()->json([
-            "data"=>$cliente,
+            "cliente"=>$cliente,
+            "perfil"=>$perfil,
+            "departamento"=>$departamento,
             "status"=>Response::HTTP_OK
         ],Response::HTTP_OK);
     }

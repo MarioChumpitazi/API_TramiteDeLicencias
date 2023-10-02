@@ -19,9 +19,9 @@ class PerfilController extends Controller
      */
     public function index()
     {
-        $perfiles = Perfil::all();
+        $perfils = Perfil::all();
         return response()->json([
-            "data"=>$perfiles,
+            "data"=>$perfils,
             "status"=>Response::HTTP_OK
         ],Response::HTTP_OK);
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Modulo;
+use App\Models\Tramite;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -60,8 +61,10 @@ class ModuloController extends Controller
      */
     public function show(Modulo $modulo)
     {
+        $tramite = Tramite::findOrFail($modulo->id());
         return response()->json([
-            "data"=>$modulo,
+            "modulo"=>$modulo,
+            "tramite"=>$tramite,
             "status"=>Response::HTTP_OK
         ],Response::HTTP_OK);
     }
