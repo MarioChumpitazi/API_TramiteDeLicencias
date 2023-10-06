@@ -1,11 +1,11 @@
 ## Paso 1 
-composer install
+`composer install`
 
 ## Paso 2
-composer require laravel/passport
+`composer require laravel/passport`
 
 ## Paso 3
-php artisan migrate
+`php artisan migrate`
 
 ## Paso 4
-php artisan passport:install
+`php artisan passport:install`
