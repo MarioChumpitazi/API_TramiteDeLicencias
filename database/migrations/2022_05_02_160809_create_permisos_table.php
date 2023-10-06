@@ -22,7 +22,7 @@ class CreatePermisosTable extends Migration
 
             $table->foreign('idPerfil')
                 ->references('id')
-                ->on('perfiles');
+                ->on('perfils');
 
             $table->unsignedBigInteger('idModulo');
 

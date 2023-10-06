@@ -49,7 +49,7 @@ class UserController extends Controller
         $data['password'] = bcrypt($data['password']);
 
         $user = User::create($data);
-        $loginData['token'] = $user->createToken('EDtoken')->accessToken;
+        $loginData['token'] = $user->createToken('token')->accessToken;
             return response()->json([
                 "message"=>"Bienvenido",
                 "data"=>$loginData,
