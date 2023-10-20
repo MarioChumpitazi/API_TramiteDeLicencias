@@ -19,9 +19,11 @@ class ClienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $clientes = Cliente::all();
+        // $clientes = Cliente::all();
+        $tipo = isset($request->tipo)?$request->tipo:1;
+        $clientes = Cliente::where('tipo_cliente',$tipo)->get();
         return response()->json([
             "data"=>$clientes,
             "status"=>Response::HTTP_OK

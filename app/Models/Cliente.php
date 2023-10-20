@@ -12,14 +12,15 @@ class Cliente extends Model
         "apellidos",
         "email",
         "password",
-        "DNI",
+        "dni",
         "sexo",
         "edad",
         "telefono",
         "estado",
         "idPerfil",
-        "idDepartamento"
-
+        "idDepartamento",
+        // AGREGADO
+        "tipo_cliente"
     ];
 
     public function perfil(){

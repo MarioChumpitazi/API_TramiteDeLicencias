@@ -26,6 +26,10 @@ class CreateClientesTable extends Migration
             $table->integer('telefono')->length(15);;
             $table->boolean('estado')->default(1);
 
+            // AGREGADO
+            $table->integer('tipo_cliente')->default(1);
+            // 
+
             $table->unsignedBigInteger('idPerfil');
 
             $table->foreign('idPerfil')
