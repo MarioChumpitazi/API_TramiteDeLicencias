@@ -20,7 +20,7 @@ class CreateClientesTable extends Migration
             $table->string('apellidos',50);
             $table->string('email',255)->unique();
             $table->string('password',255);
-            $table->string('DNI',9)->unique();
+            $table->string('dni',9)->unique();
             $table->enum('sexo',['Masculino','Femenino']);
             $table->integer('edad')->length(2);
             $table->integer('telefono')->length(15);;
