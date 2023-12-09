@@ -23,7 +23,7 @@ class ClienteController extends Controller
     {
         // $clientes = Cliente::all();
         $tipo = isset($request->tipo)?$request->tipo:1;
-        $clientes = Cliente::where('tipo_cliente',$tipo)->get();
+        $clientes = Cliente::where('tipo_cliente',$tipo)->orderby('created_at','DESC')->get();
         return response()->json([
             "data"=>$clientes,
             "status"=>Response::HTTP_OK
@@ -102,5 +102,15 @@ class ClienteController extends Controller
             "status"=>Response::HTTP_OK
         ],Response::HTTP_OK);
         
+    }
+
+    public function cambiarFechaPostulante(Cliente $cliente){
+        $cliente->created_at=now();
+        $cliente->update();
+        return response()->json([
+            "message"=>"El Cliente se programo correctamente",
+            "data"=>$cliente,
+            "status"=>Response::HTTP_OK
+        ],Response::HTTP_OK);
     }
 }
